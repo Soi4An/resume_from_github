@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The application to be developed is a github resume creator. Check http://resume.github.io/ as an example. It must be a responsive react SPA. It’s up to the developer to pick components pack/framework (e.g. material-ui, foundation, bootstrap). It should look nice and be easily useable. Sass/Scss preferable but CSS usage is acceptable. Don’t put much effort on the design sacrificing functionality but good UI/UX decisions will be taken into account.
 
-## Available Scripts
+# Application structure
 
-In the project directory, you can run:
+Application should consist of two functional screens “Home page” and “Resume” accessible via ‘/’ and ‘/:username’ routes accordingly.
 
-### `npm start`
+## Home page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Landing page with one input that expects GitHub username and a submit button. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+User stories:
+1.	As a user I would like to see self-describing user interface that allows me to understand what input expects and what this application for.
+2.	As a user I would like to be able to use the application with a mobile device.
+3.	As a user I would like to enter value to the username input and be redirected after submit (either with “Submit” button click or “Enter” press).
 
-### `npm test`
+## Resume page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Resume page that contains info about the github user and his repositories. Main information that should be displayed is an information about used programming languages for the user’s repositories and a list of last ten updated repositories sorted by date descending. 
 
-### `npm run build`
+	User stories:
+1.	As a user I would like to be presented with resume page following the “/<username>” route.
+2.	As a user I would like to be notified if user with given username doesn’t exist following the “/<username>” route.
+3.	As a user I would like to see brief information of an existing user on a page that contains first and last name of a user, number of public repositories and since when he is a member.
+4.	As a user I would like to see the list of used programming languages that are used in his public repositories (e.g. HTML 15%, JavaScript 45%, CSS 35%, Bash 5%). It may be a plain list or a pie/bar chart with the legend.
+5.	As a user I would like to see the list of most recently edited public repositories of the user with active links to according GitHub repositories.
+6.	As a user I would like to be able to use the application with a mobile device.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Criteria
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Following points will be considered during application examination:
+1.	Application should provide expected functionality for both screens.
+2.	Code quality is a must. This criteria includes: 
+  a.	project structure check;
+  b.	if code is well organized;
+  c.	if it’s developed in ‘react’ way;
+  d.	if code is readable and self-explanatory;
+3.	Application should be responsive and easy to use on mobile devices.
