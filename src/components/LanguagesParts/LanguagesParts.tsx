@@ -3,29 +3,37 @@ import { calculateLanguages } from "../../utils/calculateLanguages";
 import { Loader } from "../Loader/Loader";
 import { Repository } from "../../types/Repository";
 import { Language } from "../../types/Language";
-import RowDefault from "../RowDefault/RowDefault";
+import { Divider } from "../Divider/Divider";
+import CardLanguage from "../CardLanguage/CardLanguage";
+
+const langsMy = [
+  { name: 'TypeScript', percent: 50 },
+  { name: 'JavaScript', percent: 25 },
+  { name: 'HTML', percent: 25 },
+];
 
 type Props = {
   repos: Repository[];
 };
 
 function LanguagesParts({ repos }: Props) {
-  const [languages, setLanguages] = useState<Language[]>([]);
+  // const [languages, setLanguages] = useState<Language[]>([]);
+  const [languages, setLanguages] = useState<Language[]>(langsMy);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setIsError(false);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   setIsError(false);
 
-    calculateLanguages(repos)
-      .then((res) => setLanguages(res))
-      .catch((err) => {
-        setIsError(true);
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false));
-  }, [repos]);
+  //   calculateLanguages(repos)
+  //     .then((res) => setLanguages(res.sort((a, b) => b.percent - a.percent)))
+  //     .catch((err) => {
+  //       setIsError(true);
+  //       console.log(err);
+  //     })
+  //     .finally(() => setIsLoading(false));
+  // }, [repos]);
 
   return (
     <>
@@ -33,12 +41,18 @@ function LanguagesParts({ repos }: Props) {
 
       {isError && <p className="h2 text-error">{"Failed to get data"}</p>}
 
-      {!!languages.length &&
-        !isError &&
-        !isLoading &&
-        languages.map(({ name, percent }) => (
-          <RowDefault key={name} name={name} value={percent + "%"} />
-        ))}
+      {!!languages.length && !isError && !isLoading && (
+        <div className="list__wrapper">
+          <ul className="list">
+            {languages.map(({ name, percent }, ind) => (
+              <li>
+                {ind !== 0 && <Divider />}
+                <CardLanguage key={name} langName={name} langPercent={percent}/>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 }

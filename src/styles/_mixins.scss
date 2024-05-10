@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+@mixin onMobile {
+  @media (max-width: calc($screenTablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: $screenTablet) and (max-width: calc($screenDesktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $screenDesktop) {
+    @content;
+  }
+}

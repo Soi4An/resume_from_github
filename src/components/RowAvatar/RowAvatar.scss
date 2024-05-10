@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/resumeRow.scss";
+
+.avatar {
+  width: fit-content;
+  max-width: $maxWidthAvatar;
+  min-width: $minWidthAvatar;
+
+  border: 0.2em solid $colorDarkBlue;
+  border-radius: 50%;
+
+  @include onMobile {
+    width: 50%;
+  }
+}

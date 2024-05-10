@@ -1,0 +1,19 @@
+@import "../../styles/mixins";
+
+.list {
+  width: 100%;
+
+  @include onMobile {
+    width: 90%;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: end;
+    width: 70%;
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+}

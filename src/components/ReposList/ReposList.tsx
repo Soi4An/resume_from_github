@@ -1,5 +1,7 @@
 import { Repository } from "../../types/Repository";
 import CardRepo from "../CardRepo/CardRepo";
+import { Divider } from "../Divider/Divider";
+import "./ReposList.scss";
 
 type Props = {
   repos: Repository[];
@@ -8,21 +10,24 @@ type Props = {
 function ReposList({ repos }: Props) {
   const visibleRepos = repos
     .sort((repoA, repoB) => {
-    const dateA = new Date(repoA.updated_at).getTime();
-    const dateB = new Date(repoB.updated_at).getTime();
+      const dateA = new Date(repoA.updated_at).getTime();
+      const dateB = new Date(repoB.updated_at).getTime();
 
-    return dateB - dateA;
+      return dateB - dateA;
     })
     .slice(0, 10);
 
   return (
-    <ul>
-      {visibleRepos.map((repo) => (
-        <li>
-          <CardRepo key={repo.id} repo={repo} />
-        </li>
-      ))}
-    </ul>
+    <div className="list__wrapper">
+      <ul className="list">
+        {visibleRepos.map((repo, ind) => (
+          <li>
+            {ind !== 0 && <Divider />}
+            <CardRepo key={repo.id} repo={repo} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

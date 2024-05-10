@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.card-repo {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__link {
+    transition: color $transition;
+    &:hover {
+      color: $colorBlue;
+    }
+  }
+}

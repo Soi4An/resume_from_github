@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.home {
+  &__title {
+    display: flex;
+    justify-content: center;
+  }
+  &__paragraf {
+    margin-bottom: 1em;
+    text-align: justify;
+  }
+  &__form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+    gap: 1em;
+
+    @include onMobile {
+      flex-direction: column;
+      align-items: end;
+    }
+  }
+  &__input {
+    width: 40%;
+    padding: 0.5em;
+
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    transition: box-shadow linear $transition;
+
+    @include onMobile {
+      width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 5px 5px 10px $colorDarkBlue;
+    }
+  }
+  &__button {
+    width: 20%;
+    max-width: 200px;
+
+    font-family: inherit;
+    font-size: 1em;
+    color: white;
+    background-color: $colorDarkBlue;
+    cursor: pointer;
+    transition: box-shadow $transition, background-color $transition;
+
+    @include onMobile {
+      width: 100%;
+      padding: 0.5em;
+    }
+    
+    &:hover {
+      background-color: $colorBlue;
+      box-shadow: 10px 10px 10px $colorDarkBlue;
+    }
+  }
+}

@@ -7,7 +7,7 @@ type Props = {
 
 const RowReposList = ({ repos }: Props) => (
   <div className="resume-row">
-    <p className="resume-row__name">{"Last 10 edited public repos:"}</p>
+    <h3 className="resume-row__name">{"Last 10 edited public repos:"}</h3>
 
     <ReposList repos={repos} />
   </div>

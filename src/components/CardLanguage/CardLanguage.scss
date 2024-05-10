@@ -1,0 +1,12 @@
+.card-lang {
+  display: flex;
+  justify-content: center;
+
+  &__name {
+    width: 40%;
+  }
+
+  &__value {
+    width: 10%;
+  }
+}

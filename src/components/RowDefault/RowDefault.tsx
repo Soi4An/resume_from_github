@@ -3,13 +3,12 @@ type Props = {
   value: string | number | null;
 };
 
-function RowDefault({ name, value }: Props) {
-  return (
-    <div className="resume-row">
-      <p className="resume-row__name">{`${name}:`}</p>
-      <p>{value}</p>
-    </div>
-  );
-}
+const RowDefault = ({ name, value }: Props) => (
+  <div className="resume-row">
+    <h3 className="resume-row__name">{`${name}:`}</h3>
+
+    <p className="resume-row__value">{value}</p>
+  </div>
+);
 
 export default RowDefault;

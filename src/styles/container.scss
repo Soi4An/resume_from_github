@@ -1,0 +1,23 @@
+@import "./_variables.scss";
+@import "./_mixins.scss";
+
+.container {
+  margin: 0 $gapContainerMobile;
+
+  @include onTablet {
+    margin: 0 $gapContainerTablet;
+  }
+
+  @include onDesktop {
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+  }
+
+  &__page {
+    margin: 1em 0;
+    padding: 2em;
+    border: 0.1em solid $colorLightGrey;
+
+    box-shadow: 10px 10px 10px $colorDarkBlue;
+  }
+}

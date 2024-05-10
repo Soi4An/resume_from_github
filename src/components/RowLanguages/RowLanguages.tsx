@@ -7,7 +7,7 @@ type Props = {
 
 const RowLanguages = ({ repos }: Props) => (
   <div className="resume-row">
-    <p className="resume-row__name">{"Languages"}</p>
+    <h3 className="resume-row__name">{"Languages"}</h3>
 
     <LanguagesParts repos={repos} />
   </div>

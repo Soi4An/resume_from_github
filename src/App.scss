@@ -1,18 +1,24 @@
+@import "./styles/mixins";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-// .container {
-//   margin: 0 20px;
+ul {
+  list-style: none;
+}
 
-//   @include onTablet {
-//     margin: 0 72px;
-//   }
-
-//   @include onDesktop {
-//     max-width: 1124px;
-//     margin: 0 auto;
-//   }
-// }
+body {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 14px;
+  
+  @include onTablet {
+    font-size: 18px;
+  }
+  
+  @include onDesktop {
+    font-size: 21px;
+  }
+}

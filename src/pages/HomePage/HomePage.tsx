@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Divider } from "../../components/Divider/Divider";
+import "./HomePage.scss";
 
 function HomePage() {
-  const [query, setQuery] = useState<string>('');
+  const [query, setQuery] = useState<string>("");
   const navigate = useNavigate();
 
   const changeQueryInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,13 +24,33 @@ function HomePage() {
   };
 
   return (
-    <main>
-      <p>Home Page</p>
+    <main className="container">
+      <div className="container__page">
+        <div className="home__title">
+          <h1>{"MY GITHUB RÉSUMÉ"}</h1>
+        </div>
 
-      <form onSubmit={handleSubmit}>
-        <input value={query} onChange={changeQueryInput} type="text" />
-        <button type="submit">Submit</button>
-      </form>
+        <Divider />
+
+        <p className="home__paragraf">
+          {
+            "This project can help you find information about a specific user on GitHub. You just need to write the user's nickname in the input field below and click Submit button."
+          }
+        </p>
+
+        <form onSubmit={handleSubmit} className="home__form">
+          <input
+            className="home__input"
+            placeholder="Write the nickname"
+            value={query}
+            onChange={changeQueryInput}
+            type="text"
+          />
+          <button className="home__button" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </main>
   );
 }

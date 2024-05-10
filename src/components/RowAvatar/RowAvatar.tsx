@@ -1,13 +1,13 @@
+import "./RowAvatar.scss";
+
 type Props = {
   url: string;
 };
 
-function RowAvatar({ url }: Props) {
-  return (
-    <div className="resume-row resume-row--center">
-      <img src={url} alt={"avatar"} />
-    </div>
-  );
-}
+const RowAvatar = ({ url }: Props) => (
+  <div className="resume-row resume-row--avatar">
+    <img className="avatar" src={url} alt={"avatar"} />
+  </div>
+);
 
 export default RowAvatar;
