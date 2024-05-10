@@ -1,17 +1,12 @@
 @import "../../styles/variables";
 
-.card-repo {
-  display: flex;
-  flex-direction: column;
-
+.error {
   &__title {
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
   }
 
   &__content {
-    display: flex;
-    justify-content: end;
+    text-align: end;
   }
 
   &__link {

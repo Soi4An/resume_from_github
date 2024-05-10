@@ -6,34 +6,27 @@ import { Language } from "../../types/Language";
 import { Divider } from "../Divider/Divider";
 import CardLanguage from "../CardLanguage/CardLanguage";
 
-const langsMy = [
-  { name: 'TypeScript', percent: 50 },
-  { name: 'JavaScript', percent: 25 },
-  { name: 'HTML', percent: 25 },
-];
-
 type Props = {
   repos: Repository[];
 };
 
 function LanguagesParts({ repos }: Props) {
-  // const [languages, setLanguages] = useState<Language[]>([]);
-  const [languages, setLanguages] = useState<Language[]>(langsMy);
+  const [languages, setLanguages] = useState<Language[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setIsError(false);
+  useEffect(() => {
+    setIsLoading(true);
+    setIsError(false);
 
-  //   calculateLanguages(repos)
-  //     .then((res) => setLanguages(res.sort((a, b) => b.percent - a.percent)))
-  //     .catch((err) => {
-  //       setIsError(true);
-  //       console.log(err);
-  //     })
-  //     .finally(() => setIsLoading(false));
-  // }, [repos]);
+    calculateLanguages(repos)
+      .then((res) => setLanguages(res.sort((a, b) => b.percent - a.percent)))
+      .catch((err) => {
+        setIsError(true);
+        console.log(err);
+      })
+      .finally(() => setIsLoading(false));
+  }, [repos]);
 
   return (
     <>
