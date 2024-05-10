@@ -5,12 +5,17 @@ import { ValidateUser } from "../../types/ValidateUser";
 import { getValidatedUser } from "../../utils/getValidatedUser";
 import { Loader } from "../../components/Loader/Loader";
 import { Divider } from "../../components/Divider/Divider";
+import RowAvatar from "../../components/RowAvatar/RowAvatar";
+import RowDefault from "../../components/RowDefault/RowDefault";
+import RowTitle from "../../components/RowTitle/RowTitle";
 
 function ResumePage() {
   const { userName } = useParams();
   const [user, setUser] = useState<ValidateUser | null>(null);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const createdAccount = user?.created_at.slice(0, 10) || null;
 
   useEffect(() => {
     if (userName) {
@@ -28,23 +33,19 @@ function ResumePage() {
     <main>
       {isLoading && <Loader />}
 
-      {isError && <div>{"THIS USER HASN'T OPTED IN"}</div>}
+      {isError && <h2 className="h2">{"THIS USER HASN'T OPTED IN"}</h2>}
 
       {user && (
         <>
-         <Loader />
-          <p>Resume Page</p>
-
-          <p>{`Alias: ${userName}`}</p>
-          <img src={user.avatar_url} alt={"avatar"} />
+          <RowTitle userName={user.login} />
+          <RowAvatar url={user.avatar_url} />
           <Divider />
-          <p>{`Name: ${user.name}`}</p>
+          <RowDefault name={"Name"} value={user.name} />
           <Divider />
-          <p>{`Public ropositories: ${user.public_repos}`}</p>
+          <RowDefault name={"Public ropositories"} value={user.public_repos} />
           <Divider />
-          <p>{`Authtorized from: ${user.created_at.slice(0, 10)}`}</p>
-
-
+          <RowDefault name={"Authtorized from"} value={createdAccount} />
+          <Divider />
         </>
       )}
     </main>
