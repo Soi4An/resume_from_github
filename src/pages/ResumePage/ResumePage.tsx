@@ -8,6 +8,7 @@ import { Divider } from "../../components/Divider/Divider";
 import RowAvatar from "../../components/RowAvatar/RowAvatar";
 import RowDefault from "../../components/RowDefault/RowDefault";
 import RowTitle from "../../components/RowTitle/RowTitle";
+import Repositories from "../../components/Repositories/Repositories";
 
 function ResumePage() {
   const { userName } = useParams();
@@ -24,10 +25,13 @@ function ResumePage() {
 
       getUser(userName)
         .then((res) => setUser(getValidatedUser(res)))
-        .catch(() => setIsError(true))
+        .catch((err: Error) => {
+          setIsError(true);
+          console.log(err.message)
+        })
         .finally(() => setIsLoading(false));
     }
-  }, []);
+  }, [userName]);
 
   return (
     <main>
@@ -35,7 +39,7 @@ function ResumePage() {
 
       {isError && <h2 className="h2">{"THIS USER HASN'T OPTED IN"}</h2>}
 
-      {user && (
+      {user && !isError && !isLoading && (
         <>
           <RowTitle userName={user.login} />
           <RowAvatar url={user.avatar_url} />
@@ -45,7 +49,8 @@ function ResumePage() {
           <RowDefault name={"Public ropositories"} value={user.public_repos} />
           <Divider />
           <RowDefault name={"Authtorized from"} value={createdAccount} />
-          <Divider />
+          
+          <Repositories userName={user.login} />
         </>
       )}
     </main>

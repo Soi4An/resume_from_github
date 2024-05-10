@@ -1,6 +1,11 @@
 import { getLanguages } from "../api/getLanguages";
+import { Language } from "../types/Language";
 import { Languages } from "../types/Languages";
 import { Repository } from "../types/Repository";
+
+function roundToOneDecimalPlace(number: number) {
+  return Math.trunc(number * 10) / 10;
+}
 
 export const calculateLanguages = async (repos: Repository[]) => {
   const languageCounts: Languages = {};
@@ -19,10 +24,17 @@ export const calculateLanguages = async (repos: Repository[]) => {
     }
   }
 
-  const languagePercentages: Languages = {};
+  const languagePercentages: Language[] = [];
 
   for (const language in languageCounts) {
-    languagePercentages[language] = (languageCounts[language] / totalSum) * 100;
+    const newLanguage = {
+      name: language,
+      percent: roundToOneDecimalPlace(
+        (languageCounts[language] / totalSum) * 100
+      ),
+    };
+
+    languagePercentages.push(newLanguage);
   }
 
   return languagePercentages;
