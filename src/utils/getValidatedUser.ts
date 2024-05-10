@@ -1,12 +1,13 @@
 import { User } from "../types/User";
+import { ValidateUser } from "../types/ValidateUser";
 
-export const validatedUser = ({
+export const getValidatedUser: (user: User) => ValidateUser = ({
   login,
   name,
   avatar_url,
   public_repos,
   repos_url,
   created_at,
-}: User) => {
+}) => {
   return { login, name, avatar_url, public_repos, repos_url, created_at };
 };
