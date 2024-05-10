@@ -4,9 +4,6 @@ const BASE_URL = 'https://api.github.com';
 
 const instance = axios.create({
   baseURL: BASE_URL,
-  // headers: {
-  //   Authorization: 'Client-ID ' + ACCESS_KEY,
-  // },
 });
 
 export const client = {
