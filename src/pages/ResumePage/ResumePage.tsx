@@ -32,6 +32,7 @@ function ResumePage() {
 
       {user && (
         <>
+         <Loader />
           <p>Resume Page</p>
 
           <p>{`Alias: ${userName}`}</p>

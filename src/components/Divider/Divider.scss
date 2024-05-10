@@ -1,5 +1,7 @@
+@import "../../styles/_variables.scss";
+
 .divider {
   height: 1px;
   margin: 1rem 0;
-  background-color: darkslateblue;
+  background-color: $colorDarkBlue;
 }

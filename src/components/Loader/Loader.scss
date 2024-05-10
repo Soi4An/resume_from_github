@@ -1,3 +1,5 @@
+@import "../../styles/_variables.scss";
+
 .loader {
   display: flex;
   width: 100%;
@@ -8,11 +10,10 @@
 
   &__content {
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    margin: 1em auto;
-    border: 0.3em solid #ddd;
-    border-left-color: #000;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.3em solid $colorLightGrey;
+    border-left-color: $colorDarkBlue;
     animation: load8 1.2s infinite linear;
   }
 }
