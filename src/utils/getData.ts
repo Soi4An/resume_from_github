@@ -1,4 +1,4 @@
-type Data = {
+type Date = {
   day: string;
   month: string;
   year: string;
@@ -6,7 +6,7 @@ type Data = {
   minutes: string;
 };
 
-export const getData = (inputDate: string): Data => {
+export const getDate = (inputDate: string): Date => {
   const date = new Date(inputDate);
 
   const day = date.getDate().toString().padStart(2, "0");

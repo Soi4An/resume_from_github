@@ -11,6 +11,7 @@ import RowTitle from "../../components/RowTitle/RowTitle";
 import Repositories from "../../components/Repositories/Repositories";
 import Error from "../../components/Error/Error";
 import "./ResumePage.scss";
+import { getDate } from "../../utils/getData";
 
 function ResumePage() {
   const { userName } = useParams();
@@ -18,7 +19,10 @@ function ResumePage() {
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const createdAccount = user?.created_at.slice(0, 10) || null;
+  const gotDate = user ? getDate(user?.created_at) : null;
+  const formatedData = gotDate
+    ? `${gotDate.day}.${gotDate.month}.${gotDate.year}`
+    : null;
 
   useEffect(() => {
     if (userName) {
@@ -42,21 +46,22 @@ function ResumePage() {
 
         {isLoading && <Loader />}
 
-        {isError && (
-          <Error />
-        )}
+        {isError && <Error />}
 
         {user && !isError && !isLoading && (
           <>
             <RowAvatar url={user.avatar_url} />
-            <RowDefault name={"Name"} value={user.name} />
+            <RowDefault
+              name={"Name"}
+              value={user.name || `${user.login} (name is missing)`}
+            />
             <Divider />
             <RowDefault
               name={"Public ropositories"}
               value={user.public_repos}
             />
             <Divider />
-            <RowDefault name={"Authtorized from"} value={createdAccount} />
+            <RowDefault name={"Authtorized from"} value={formatedData} />
 
             <Repositories userName={user.login} />
           </>

@@ -21,9 +21,9 @@ function ReposList({ repos }: Props) {
     <div className="list__wrapper">
       <ul className="list">
         {visibleRepos.map((repo, ind) => (
-          <li>
+          <li key={repo.id} >
             {ind !== 0 && <Divider />}
-            <CardRepo key={repo.id} repo={repo} />
+            <CardRepo repo={repo} />
           </li>
         ))}
       </ul>

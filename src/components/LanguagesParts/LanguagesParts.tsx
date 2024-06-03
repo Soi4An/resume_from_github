@@ -38,9 +38,9 @@ function LanguagesParts({ repos }: Props) {
         <div className="list__wrapper">
           <ul className="list">
             {languages.map(({ name, percent }, ind) => (
-              <li>
+              <li key={name} >
                 {ind !== 0 && <Divider />}
-                <CardLanguage key={name} langName={name} langPercent={percent}/>
+                <CardLanguage langName={name} langPercent={percent}/>
               </li>
             ))}
           </ul>

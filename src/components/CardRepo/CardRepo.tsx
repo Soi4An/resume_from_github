@@ -1,13 +1,13 @@
 import { Repository } from "../../types/Repository";
-import { getData } from "../../utils/getData";
-import './CardRepo.scss';
+import { getDate } from "../../utils/getData";
+import "./CardRepo.scss";
 type Props = {
   repo: Repository;
 };
 
 function CardRepo({ repo }: Props) {
   const { name, html_url, updated_at } = repo;
-  const { day, month, year, hours, minutes } = getData(updated_at);
+  const { day, month, year, hours, minutes } = getDate(updated_at);
   const formatedData = `${day}.${month}.${year} ${hours}:${minutes}`;
 
   return (
@@ -18,7 +18,9 @@ function CardRepo({ repo }: Props) {
       </div>
 
       <div className="card-repo__content">
-        <a  className="card-repo__link"href={html_url}>{'Open on the GitHub'}</a>
+        <a className="card-repo__link" href={html_url}>
+          {"Open on the GitHub"}
+        </a>
       </div>
     </div>
   );
