@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Divider } from "../../components/Divider/Divider";
 import "./HomePage.scss";
 
 function HomePage() {
   const [query, setQuery] = useState<string>("");
   const navigate = useNavigate();
+  // const location = useLocation();
 
   const changeQueryInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value.trim();
@@ -49,6 +50,9 @@ function HomePage() {
           <button className="home__button" type="submit">
             Submit
           </button>
+          {/* <Link to={`/${query}`} className="home__button">
+            {'Submit'}
+          </Link> */}
         </form>
       </div>
     </main>
