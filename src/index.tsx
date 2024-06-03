@@ -9,6 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    {/* <Router basename="/resume_from_github"> */}
     <Router>
       <App />
     </Router>
