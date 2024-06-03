@@ -1,6 +1,6 @@
 {
   "name": "task--resume_from_github",
-  "homepage": "https://Soi4An.github.io/resume_from_github/",
+  "homepage": "https://Soi4An.github.io/resume_from_github",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
