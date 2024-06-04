@@ -15,6 +15,7 @@ const instance = axios.create({
 
 export const client = {
   async get<T>(url: string) {
+    console.log('token', process.env.YOUR_ACCESS_TOKEN_GITHUB);
     const response = await instance.get<T>(url);
 
     return response.data;
