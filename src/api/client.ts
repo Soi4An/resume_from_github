@@ -1,13 +1,9 @@
 import axios from 'axios';
-// import { YOUR_ACCESS_TOKEN_GITHUB } from '../config';
 
 const BASE_URL = 'https://api.github.com';
 
 const instance = axios.create({
   baseURL: BASE_URL,
-  // headers: {
-  //   'User-Agent': 'Soi4An'
-  // }
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN_GITHUB}`
   }

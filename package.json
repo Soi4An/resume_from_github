@@ -1,5 +1,6 @@
 {
-  "name": "task--resume_from_github",
+  "name": "resume_from_github",
+  "author": "Soi4An",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

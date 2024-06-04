@@ -9,8 +9,7 @@ const Error = () => (
     <h2 className="error__title h2">{"THIS USER HASN'T OPTED IN"}</h2>
 
     <div className="error__content">
-      {/* <a className="error__link" href={"/"}>{"Go back"}</a> */}
-      <Link to={'/'} className="error__link">{"Go back"}</Link>
+      <Link to={'/'} className="error__link">{"Go to Home"}</Link>
     </div>
   </div>
 );

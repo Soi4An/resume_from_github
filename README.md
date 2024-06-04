@@ -21,7 +21,7 @@ Project architecture:
 [TypeScript, React, JS, SASS, HTML, CSS, OOP, BEM, semantice, React-router-dom, Axios, screens adaptability].
 
 ## DEMO:
-https://soi4an.github.io/resume_from_github/
+https://resume-from-github.vercel.app/
 
 ## Example:
 http://resume.github.io/
