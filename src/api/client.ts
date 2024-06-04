@@ -9,13 +9,12 @@ const instance = axios.create({
   //   'User-Agent': 'Soi4An'
   // }
   headers: {
-    Authorization: `Bearer ${process.env.YOUR_ACCESS_TOKEN_GITHUB}`
+    Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN_GITHUB}`
   }
 });
 
 export const client = {
   async get<T>(url: string) {
-    console.log('token', process.env.YOUR_ACCESS_TOKEN_GITHUB);
     const response = await instance.get<T>(url);
 
     return response.data;
